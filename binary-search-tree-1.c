@@ -77,32 +77,31 @@ int main(){
 		case 'f': case 'F':
 			printf("Your Key = ");
 			scanf("%d", &key); // 사용자로부터 키 값 입력 받음
-			ptr = searchIterative(head, key); // 
-			if(ptr != NULL)
+			ptr = searchIterative(head, key); // 비재귀 방식으로 노드 탐색
+			if(ptr != NULL) // 같은 키값을 가진 노드가 있는 경우
 				printf("\n node [%d] found at %p\n", ptr->key, ptr);
-			else
+			else  // 같은 키값을 가진 노드가 없는 경우
 				printf("\n Cannot find the node [%d]\n", key);
 			break;
 		case 's': case 'S':
 			printf("Your Key = ");
-			scanf("%d", &key);
-			ptr = searchRecursive(head->left, key);
-			if(ptr != NULL)
+			scanf("%d", &key); // 사용자로부터 키값 입력 받음
+			ptr = searchRecursive(head->left, key); // 재귀 방식으로 탐색 
+			if(ptr != NULL) // 같은 키값을 가진 노드가 있는 경우
 				printf("\n node [%d] found at %p\n", ptr->key, ptr);
-			else
+			else // 같은 키값을 가진 노드가 없는 경우
 				printf("\n Cannot find the node [%d]\n", key);
 			break;
-
 		case 'i': case 'I':
-			inorderTraversal(head->left);
+			inorderTraversal(head->left); // 중위 순회 방식
 			break;
 		case 'p': case 'P':
-			preorderTraversal(head->left);
+			preorderTraversal(head->left); // 전위 순회 방식
 			break;
 		case 't': case 'T':
-			postorderTraversal(head->left);
+			postorderTraversal(head->left); // 후위 순회 방식
 			break;
-		default:
+		default: // 그 이외의 명령어는 유효하지 않음
 			printf("\n       >>>>>   Concentration!!   <<<<<     \n");
 			break;
 		}
